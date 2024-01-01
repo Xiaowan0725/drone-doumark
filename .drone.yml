@@ -1,54 +1,77 @@
-# .drone.yml
-kind: pipeline
-type: docker
-name: default
+# .github/workflows/douban.yml
+name: douban
+on: 
+  schedule:
+  - cron: "30 * * * *"
 
-clone:
-  disable: true
+jobs:
+  douban:
+    name: Douban mark data sync
+    runs-on: ubuntu-latest
+    steps:
+    - name: movie
+      uses: 192253637/doumark-action@master
+      with:
+        id: 192253637
+        type: movie
+        format: notion
+        dir: 0abe46bd3132432f8d7ef4b216bf3e1a
+        notion_token: ${{ secrets.secret_qJ3SxDKxC2lFs6kupzNlz6P2psLxfOzMYaBNHe33AUz }}
 
-steps:
-- name: douban
-  image: 192253637/drone-doumark
-  settings:
-    id: 192253637
-    type: movie
-    format: notion
-    notion_token: secret_qJ3SxDKxC2lFs6kupzNlz6P2psLxfOzMYaBNHe33AUz
-    dir: 0abe46bd3132432f8d7ef4b216bf3e1a
+
+
+        
+# # .drone.yml
+# kind: pipeline
+# type: docker
+# name: default
+
+# clone:
+#   disable: true
+
+# steps:
+# - name: douban
+#   image: 192253637/drone-doumark
+#   settings:
+#     id: 192253637
+#     type: movie
+#     format: notion
+#     notion_token: secret_qJ3SxDKxC2lFs6kupzNlz6P2psLxfOzMYaBNHe33AUz
+#     dir: 0abe46bd3132432f8d7ef4b216bf3e1a
 
 
     
-  docker run --rm \
-  -e PLUGIN_ID=192253637
-  -e PLUGIN_TYPE=movie
-  -e PLUGIN_FORMAT=notion
-  -e PLUGIN_NOTION_TOKEN=secret_qJ3SxDKxC2lFs6kupzNlz6P2psLxfOzMYaBNHe33AUz
-  -e PLUGIN_DIR=0abe46bd3132432f8d7ef4b216bf3e1a
-  192253637/drone-doumark
+#   docker run --rm \
+#   -e PLUGIN_ID=192253637
+#   -e PLUGIN_TYPE=movie
+#   -e PLUGIN_FORMAT=notion
+#   -e PLUGIN_NOTION_TOKEN=secret_qJ3SxDKxC2lFs6kupzNlz6P2psLxfOzMYaBNHe33AUz
+#   -e PLUGIN_DIR=0abe46bd3132432f8d7ef4b216bf3e1a
+#   192253637/drone-doumark
 
 
 
-disable drone ci because of cloud.drone.io stop working
+# # disable drone ci because of cloud.drone.io stop working
 
 
-kind: pipeline
-type: docker
-name: default
+# # kind: pipeline
+# # type: docker
+# # name: default
 
-steps:
-- name: build
-  image: node:alpine
-  commands:
-  - npm ci
-  - npm run build
-  - version=$(node -e "console.log(require('./package.json').version)")
-  - echo -n "$version,latest" > .tags
+# # steps:
+# # - name: build
+# #   image: node:alpine
+# #   commands:
+# #   - npm ci
+# #   - npm run build
+# #   - version=$(node -e "console.log(require('./package.json').version)")
+# #   - echo -n "$version,latest" > .tags
 
-- name: publish
-  image: plugins/docker
-  settings:
-    repo: lizheming/drone-doumark
-    username:
-      from_secret: docker_username
-    password:
-      from_secret: docker_password
+# # - name: publish
+# #   image: plugins/docker
+# #   settings:
+# #     repo: lizheming/drone-doumark
+# #     username:
+# #       from_secret: docker_username
+# #     password:
+# #       from_secret: docker_password
