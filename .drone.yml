@@ -1,3 +1,31 @@
+# .drone.yml
+kind: pipeline
+type: docker
+name: default
+
+clone:
+  disable: true
+
+steps:
+- name: douban
+  image: 192253637/drone-doumark
+  settings:
+    id: 192253637
+    type: movie
+    format: notion
+    notion_token: secret_qJ3SxDKxC2lFs6kupzNlz6P2psLxfOzMYaBNHe33AUz
+    dir: 0abe46bd3132432f8d7ef4b216bf3e1a
+
+docker run --rm \
+  -e PLUGIN_ID=lizheming
+  -e PLUGIN_TYPE=movie
+  -e PLUGIN_FORMAT=notion
+  -e PLUGIN_NOTION_TOKEN=xxxxxx
+  -e PLUGIN_DIR=xxxxxx
+  lizheming/drone-doumark
+
+
+  
 # .github/workflows/douban.yml
 name: douban
 on: 
