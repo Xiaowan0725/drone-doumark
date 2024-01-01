@@ -19,12 +19,12 @@ steps:
 
     
   docker run --rm \
-  -e PLUGIN_ID=lizheming
+  -e PLUGIN_ID=192253637
   -e PLUGIN_TYPE=movie
   -e PLUGIN_FORMAT=notion
-  -e PLUGIN_NOTION_TOKEN=xxxxxx
-  -e PLUGIN_DIR=xxxxxx
-  lizheming/drone-doumark
+  -e PLUGIN_NOTION_TOKEN=secret_qJ3SxDKxC2lFs6kupzNlz6P2psLxfOzMYaBNHe33AUz
+  -e PLUGIN_DIR=0abe46bd3132432f8d7ef4b216bf3e1a
+  192253637/drone-doumark
 
 
 
