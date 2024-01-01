@@ -1,3 +1,26 @@
+# .drone.yml
+kind: pipeline
+type: docker
+name: default
+
+clone:
+  disable: true
+
+steps:
+- name: douban
+  image: lizheming/drone-doumark
+  settings:
+    id: lizheming
+    type: movie
+    format: notion
+    notion_token: xxxxxx
+    dir: xxxxxx
+    
+    
+
+
+
+
 # disable drone ci because of cloud.drone.io stop working
 
 
