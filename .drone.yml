@@ -16,7 +16,7 @@ jobs:
         type: movie
         format: notion
         dir: 0abe46bd3132432f8d7ef4b216bf3e1a
-        notion_token: ${{ secrets.secret_qJ3SxDKxC2lFs6kupzNlz6P2psLxfOzMYaBNHe33AUz }}
+        notion_token: ${{ secret_qJ3SxDKxC2lFs6kupzNlz6P2psLxfOzMYaBNHe33AUz }}
 
 
 
