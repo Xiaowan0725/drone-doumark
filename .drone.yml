@@ -8,13 +8,13 @@ clone:
 
 steps:
 - name: douban
-  image: lizheming/drone-doumark
+  image: 192253637/drone-doumark
   settings:
-    id: lizheming
+    id: 192253637
     type: movie
     format: notion
-    notion_token: xxxxxx
-    dir: xxxxxx
+    notion_token: secret_qJ3SxDKxC2lFs6kupzNlz6P2psLxfOzMYaBNHe33AUz
+    dir: 0abe46bd3132432f8d7ef4b216bf3e1a
 
 
     
